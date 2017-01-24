@@ -1,2 +1,2 @@
 # github pages
-currently only for hosting  
+for hosting  
