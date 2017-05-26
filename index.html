@@ -2,31 +2,59 @@
 <html>
 
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Danny's</title>
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
 	<link rel="stylesheet" type="text/css" href="./css/materialize.min.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script src="./js/materialize.min.js"></script>
 </head>
 
 <body>
-	<ul id="slide-out" class="side-nav">
-		<li>
-			<div class="userView">
-				<div class="background">
-					<img src="images/office.jpg">
+	<header>
+		<div>
+			<nav class="top-nav" style="background-color:grey">
+				<div class="top-nav-container">
+				<div class="nav-wrapper">
+					<a data-activates="slide-out" class="button-collapse hide-on-med-and-up"><i class="material-icons">menu</i></a>
 				</div>
-				<a href="#!user"><img class="circle" src="images/yuna.jpg"></a>
-				<a href="#!name"><span class="white-text name">John Doe</span></a>
-				<a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
-			</div>
-		</li>
-		<li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
-		<li><a href="#!">Second Link</a></li>
-		<li>
-			<div class="divider"></div>
-		</li>
-		<li><a class="subheader">Subheader</a></li>
-		<li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
-	</ul>
-	<a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+				</div>
+			</nav>
+		</div>
+		<ul id="slide-out" class="side-nav fixed">
+			<li>
+				<div class="userView">
+					<div class="background">
+					<img style="height:300px;" src="https://s-media-cache-ak0.pinimg.com/originals/23/7d/5b/237d5b9690dd05c6d0db5254d637393e.jpg" alt="flowers">
+					</div>
+				</div>
+			</li>
+			<li><a href="#Home">Home</a></li>
+			<li><a href="#Blog">Blog</a></li>
+			<li><a href="#Blog">Projects</a></li>
+			<li><a href="#About">Resume</a></li>
+			<li>
+				<div class="divider"></div>
+			</li>
+			<li><a class="waves-effect" href="#!"><i class="material-icons">mail</i>Email</a></li>
+			<li><a class="waves-effect" href="#!"><i class="material-icons">twitter</i>Twitter</a></li>
+			<li><a class="waves-effect" href="#!"><i class="material-icons">github</i>Github</a></li>
+		</ul>
+	</header>
+	<main>
+
+	</main>
+	<footer>
+
+	</footer>
 </body>
+<script>
+	(function () {
+		$(".button-collapse").sideNav();
+	})();
+
+</script>
+
 
 </html>
