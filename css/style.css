@@ -1,13 +1,13 @@
-header {
-	padding-left:300px
+.withPanelPadding {
+    padding-left:300px;
 }
 
 .top-nav-container {
-	margin-left: 20px
+	margin-left: 20px;
 }
 
 .userView{
-	height: 150px
+	height: 150px;
 }
 
 .background{
