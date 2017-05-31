@@ -1,9 +1,13 @@
 .withPanelPadding {
-    padding-left:300px;
+    padding-left: 300px;
 }
 
 .top-nav-container {
 	margin-left: 20px;
+}
+
+.page-content-container {
+    padding-top: 50px;
 }
 
 .userView{
@@ -18,4 +22,8 @@
     bottom: 0;
     left: 0;
     z-index: -1;
+}
+
+.myIcon {
+    font-size: 24px;
 }

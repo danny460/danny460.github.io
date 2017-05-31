@@ -4,7 +4,7 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Danny's</title>
-	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="./css/style.css">
 	<link rel="stylesheet" type="text/css" href="./css/materialize.min.css">
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -13,18 +13,16 @@
 
 <body>
 	<header>
-	<!--<header class="hide-on-med-and-up">-->
-		<div>
-			<nav class="top-nav" style="background-color:grey">
+		<div class="navbar-fixed">
+			<nav>
 				<div class="top-nav-container">
-				<div class="top-nav-container"
 				<div class="nav-wrapper">
-					<a data-activates="slide-out" class="button-collapse hide-on-med-and-up"><i class="material-icons">menu</i></a>
+					<a data-activates="slide-out" class="button-collapse hide-on-med-and-up"><i class="fa fa-bars"></i></a>
 				</div>
 				</div>
 			</nav>
 		</div>
-		<ul id="slide-out" class="side-nav fixed">
+		<ul id="slide-out" class="side-nav fixed"> 
 			<li>
 				<div class="userView">
 					<div class="background">
@@ -32,22 +30,22 @@
 					</div>
 				</div>
 			</li>
-			<li><a href="#home">Home</a></li>
-			<li><a href="#blog">Blog</a></li>
-			<li><a href="#projects">Projects</a></li>
-			<li><a href="#resume">Resume</a></li>
+			<li><a class="navigator-link" href="#home"><i class="fa fa-fw myIcon fa-home"></i>Home</a></li>
+			<li><a class="navigator-link" href="#blog"><i class="fa fa-fw myIcon fa-file-text"></i>Blog</a></li>
+			<li><a class="navigator-link" href="#projects"><i class="fa fa-fw myIcon fa-wrench"></i>Projects</a></li>
+			<li><a class="navigator-link" href="#resume"><i class="fa fa-fw myIcon fa-address-book"></i>Resume</a></li>
 			<li>
 				<div class="divider"></div>
 			</li>
-			<li><a class="waves-effect" href="#!" onclick="onNavigation"><i class="material-icons">mail</i>Email</a></li>
-			<li><a class="waves-effect" href="#!"><i class="material-icons">twitter</i>Twitter</a></li>
-			<li><a class="waves-effect" href="#!"><i class="material-icons">github</i>Github</a></li>
+			<li><a class="waves-effect" href="mailto:zhang.linghan62@gmail.com"><i class="fa fa-fw myIcon fa-envelope-square"></i>Email</a></li>
+			<li><a class="waves-effect" href="https://twitter.com/dannydacoolboi" target="_blank"><i class="fa fa-fw myIcon fa-twitter-square"></i>Twitter</a></li>
+			<li><a class="waves-effect" href="https://github.com/danny460" target="_blank"><i class="fa fa-fw myIcon fa-github-square"></i>Github</a></li>
 		</ul>
 	<!--</header>-->
 	</header>
 	<main>	
 		<div id="content-container" class="container">
-			<div id="page-content">
+			<div id="page-content" class="page-content-container">
 				
 			</div>
 		</div>
@@ -76,9 +74,9 @@
 				var width = innerWidth;
 				var newClass = null;
 				if(isSmall && width > small){
-					newClass = "withPanelPadding";
+					newClass = 'withPanelPadding';
 				}else if(!isSmall && width < small){
-					newClass = "";
+					newClass = '';
 				}else{
 					return;
 				}
@@ -87,6 +85,11 @@
 				$('footer').attr('class', newClass);
 				isSmall = !isSmall;
 			});
+
+			$.get('/tmp/home.html', data => {
+				$('#page-content').html(data);
+			});
+
 		};
 
 		const PAGES = {
@@ -95,9 +98,14 @@
 		}
 
 
-		$(".button-collapse").sideNav();
+		$('.button-collapse').sideNav({
+      			menuWidth: 300, // Default is 300
+      			edge: 'left', // Choose the horizontal origin
+      			draggable: true // Choose whether you can drag to open on touch screens
+    		}
+  		);
 
-		$('a').click( (e)=>{
+		$('.navigator-link').click( (e)=>{
 			e.preventDefault();
 			var href = e.target.getAttribute('href');
 			if(!href) return;
@@ -105,49 +113,21 @@
 		}); 
 
 		function navTo(href){
-			
 			switch(href){	
 				case "home":
-					toHome();
-					break;
 				case "blog":
-					toBlog();
-					break;
 				case "projects":
-					toProject();
-					break;
 				case "resume":
-					toResume();
-					break;
+					$.get(`/tmp/${href}.html`, data => {
+						$('#page-content').html(data);
+					});
+					$(".button-collapse").sideNav('hide');
 				default:
 					break;
 			}
 		}
 
-		function toHome(){
-			$.get("/tmp/home.html", data => {
-				$('#page-content').html(data);
-			});
-		}
-
-		function toBlog(){
-			$.get("/tmp/blog.html", data => {
-				$('#page-content').html(data);
-			});
-		}
-
-		function toProject(){
-			$.get("/tmp/projects.html", data => {
-				$('#page-content').html(data);
-			});
-		}
-
-		function toResume(){
-			$.get("/tmp/resume.html", data => {
-				$('#page-content').html(data);
-			});
-		}
-
+	
 	})();
 
 </script>
