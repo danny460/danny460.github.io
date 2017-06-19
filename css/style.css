@@ -27,3 +27,11 @@
 .myIcon {
     font-size: 24px;
 }
+
+.loading {
+    background-color: red;
+}
+
+.loaded {
+    background-color: green;
+}

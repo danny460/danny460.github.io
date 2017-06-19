@@ -1,0 +1,138 @@
+<!DOCTYPE>
+<html>
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Linghan's blog and portfolio'">
+	<meta name="keywords" content="Zhang Linghan Blog, Zhang Linghan Portfolio, Zhang Linghan">
+	<title>Danny's</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<link rel="stylesheet" type="text/css" href="./css/materialize.min.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="./js/materialize.min.js"></script>
+</head>
+
+<body>
+	<header>
+		<div class="navbar-fixed">
+			<nav>
+				<div class="top-nav-container">
+				<div class="nav-wrapper">
+					<a data-activates="slide-out" class="button-collapse hide-on-med-and-up"><i class="fa fa-bars"></i></a>
+				</div>
+				</div>
+			</nav>
+		</div>
+		<ul id="slide-out" class="side-nav fixed"> 
+			<li>
+				<div class="userView">
+					<div class="background">
+					<img style="height:300px;" src="https://s-media-cache-ak0.pinimg.com/originals/23/7d/5b/237d5b9690dd05c6d0db5254d637393e.jpg" alt="flowers">
+					</div>
+				</div>
+			</li>
+			<li><a class="navigator-link" href="#home"><i class="fa fa-fw myIcon fa-home"></i>Home</a></li>
+			<li><a class="navigator-link" href="#blog"><i class="fa fa-fw myIcon fa-file-text"></i>Blog</a></li>
+			<li><a class="navigator-link" href="#projects"><i class="fa fa-fw myIcon fa-wrench"></i>Projects</a></li>
+			<li><a class="navigator-link" href="#resume"><i class="fa fa-fw myIcon fa-address-book"></i>Resume</a></li>
+			<li>
+				<div class="divider"></div>
+			</li>
+			<li><a class="waves-effect" href="mailto:zhang.linghan62@gmail.com"><i class="fa fa-fw myIcon fa-envelope-square"></i>Email</a></li>
+			<li><a class="waves-effect" href="https://twitter.com/dannydacoolboi" target="_blank"><i class="fa fa-fw myIcon fa-twitter-square"></i>Twitter</a></li>
+			<li><a class="waves-effect" href="https://github.com/danny460" target="_blank"><i class="fa fa-fw myIcon fa-github-square"></i>Github</a></li>
+		</ul>
+	<!--</header>-->
+	</header>
+	<main>	
+		<div id="content-container" class="container">
+			<div id="page-content" class="page-content-container">
+				
+			</div>
+		</div>
+	</main>
+	<footer>
+
+	</footer>
+</body>
+<script>
+	(function () {
+		var isSmall = false;
+		var small = 992;
+
+		window.onload = function(){
+
+			var isSmall = innerWidth <= small;
+			var newClass = isSmall ? "" : "withPanelPadding";
+			console.log(`isSmall ${isSmall} ${innerWidth}`);
+
+			$('main').attr('class', newClass);
+			$('header').attr('class', newClass);
+			$('footer').attr('class', newClass);
+
+
+			window.addEventListener('resize', function(){
+				var width = innerWidth;
+				var newClass = null;
+				if(isSmall && width > small){
+					newClass = 'withPanelPadding';
+				}else if(!isSmall && width < small){
+					newClass = '';
+				}else{
+					return;
+				}
+				$('main').attr('class', newClass);
+				$('header').attr('class', newClass);
+				$('footer').attr('class', newClass);
+				isSmall = !isSmall;
+			});
+
+			$.get('/tmp/home.html', data => {
+				$('#page-content').html(data);
+			});
+
+		};
+
+		const PAGES = {
+			HOME: 'home',
+			BLOG: 'blog',
+		}
+
+
+		$('.button-collapse').sideNav({
+      			menuWidth: 300, // Default is 300
+      			edge: 'left', // Choose the horizontal origin
+      			draggable: true // Choose whether you can drag to open on touch screens
+    		}
+  		);
+
+		$('.navigator-link').click( (e)=>{
+			e.preventDefault();
+			var href = e.target.getAttribute('href');
+			if(!href) return;
+			navTo(href.replace('#',''));
+		}); 
+
+		function navTo(href){
+			switch(href){	
+				case "home":
+				case "blog":
+				case "projects":
+				case "resume":
+					$.get(`/tmp/${href}.html`, data => {
+						$('#page-content').html(data);
+					});
+					$(".button-collapse").sideNav('hide');
+				default:
+					break;
+			}
+		}
+
+	
+	})();
+
+</script>
+
+
+</html>
