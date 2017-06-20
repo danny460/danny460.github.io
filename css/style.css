@@ -1,19 +1,77 @@
 html, body{
+    padding: 0;
     margin: 0;
 }
 
-html.loading {
-    /**/
+* {
+    font-family: Open-Sans sans-serif;
 }
 
-html.loaded {
-    /*background-color: green;*/
+.spacer {
+  flex: auto;
 }
 
 .con{
     width: 100vw;
-    height: 100vh;
+    /*height: 100vh;*/
     position: relative;
+}
+
+.nav-con{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    z-index: 1000;
+}
+
+.logo-con{
+    width: 50px;
+    text-align: center;
+    position: relative;
+    color: #ECF0F1;
+    display: inline-block;
+}
+
+.tab-con {
+    vertical-align: middle;
+    padding: 10px;
+    margin-right: 20px;
+}
+
+.tab-con .link{
+    font-size: 30px;
+    margin: auto 20px;
+    text-decoration: none;
+    transition: 0.2s ease-in;
+}
+
+.tab-con .link:visited {
+    text-decoration: none;
+}
+
+.tab-con .link:hover{
+    color: #ECF0F1;
+    background: #19242E;
+}
+
+
+
+html.loading .logo-con{
+    animation: wait 0.5s ease-in-out 0s infinite alternate-reverse;
+}
+
+html.loaded .logo-con {
+    animation: to-black 1s ease-in 0s 1 normal forwards;
+}
+
+.logo-con p {
+    margin: 0px;
+    font-size: 20px;
+    font-weight: bolder;
+    padding: 8.5px 0;
+    border: 5px solid;
 }
 
 .lb-con{
@@ -52,14 +110,18 @@ html.loaded div.lb{
     top: 0;
     left: 0;
     position: absolute;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     display: flex;
     flex-direction: column;
 }
 
 .mb{
+    /*margin: -1px;*/
     width: 100%;
     height: 100%;
-    max-height: 50vh;
     display: block;
     position: relative;
 }
@@ -80,7 +142,7 @@ html.loaded .mb{
     animation-delay: 0.2s;
 }
 .mb-red{
-    background-color: #E82D0E;
+    background-color: #AA3939;
     animation-delay: 0.4s;
 }
 
@@ -92,10 +154,9 @@ html.loaded .f2{
 }
 
 .content-con {
-    top: 0;
+    top: 50px;
     left: 0;
     width: 100vw;
-    height: 100vh;
     position: absolute;
     z-index: 100;
 }
@@ -115,7 +176,6 @@ html.loaded .f2{
 .loaded .title {
     opacity: 0;
     margin-top: 40vh;
-    font-family: 'Open Sans', sans-serif;
     font-weight: bolder;
     font-size: 70px;
     animation: scale-up 1s 1s ease-out 1 forwards;
@@ -149,3 +209,14 @@ html.loaded .f2{
     30% { margin-left: 20vw; }
     100% { margin-left: 20vw; opacity: 1;}
 }
+
+@keyframes wait{
+    0% { top: 0 }
+    100% {top: 5px}
+}
+
+@keyframes to-black{
+    0% { color: #ECF0F1 }
+    100% { color: #19242E; } 
+}
+
