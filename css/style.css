@@ -1,4 +1,4 @@
-.withPanelPadding {
+/*.withPanelPadding {
     padding-left: 300px;
 }
 
@@ -26,12 +26,53 @@
 
 .myIcon {
     font-size: 24px;
+}*/
+
+html.loading {
+    background-color: navy;
 }
 
-.loading {
-    background-color: red;
-}
-
-.loaded {
+html.loaded {
     background-color: green;
+}
+
+@keyframes move{
+    0%   {left:40%; top:0px; opacity: 0.7;}
+    50% {left:60%; top:0px; opacity: 1;}
+    100%   {left:40%; top:0px; opacity: 0.7;}
+}
+
+@keyframes move-reverse {
+    0%     {left:60%; top:0px; opacity: 1;}
+    50%    {left:40%; top:0px; opacity: 0.7;}
+    100%   {left:60%; top:0px; opacity: 1;}
+}
+
+div.first-block {
+    animation-name: move;
+}
+
+div.second-block {
+    animation-name: move-reverse;
+}
+
+div.third-block {
+    animation-name: move;
+}
+
+html.loading div.loading-block{
+    width: 200px;
+    height: 50px;
+    position: relative;
+    background-color: white;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+
+
+html.loaded div.loading-block{
+    
 }

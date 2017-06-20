@@ -2,17 +2,21 @@
 <html class="loading">
 
 <head>
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
 </head>
 
 <body>
-    HELLO
+    <div style="margin: 0 auto;">
+        <div class="first-block loading-block"></div>
+        <div class="second-block loading-block"></div>
+        <div class="third-block loading-block"></div>    
+    </div>
+    
 </body>
 <script>
     (function () {
-        const __animation = 2000;
+        const __animation = 20000000;
         const __start = Date.now();
-
         window.onload = function () {
             const html = getHtml();
             const offset = __animation + __start - Date.now();
