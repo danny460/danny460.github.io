@@ -2,29 +2,54 @@
 <html class="loading">
 
 <head>
-    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <meta name="viewport," content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+    <link rel="stylesheet" type="text/css" 
+    href="./css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 </head>
 
 <body>
-    <div style="margin: 0 auto;">
-        <div class="first-block loading-block"></div>
-        <div class="second-block loading-block"></div>
-        <div class="third-block loading-block"></div>    
-    </div> 
+    <div class="con">
+        <div class="content-con">
+            <div class="title-con">
+                <p class="title">Hello!</p>
+            </div>
+        </div>
+        <div class="mb-con">
+            <div class="mb mb-red f1"></div>
+            <div class="mb mb-red f2"></div>
+        </div>
+        <div class="mb-con">
+            <div class="mb mb-light f1"></div>
+            <div class="mb mb-light f2"></div>
+        </div>
+        <div class="mb-con">
+            <div class="mb mb-dark f1"></div>
+            <div class="mb mb-dark f2"></div>
+        </div>
+        <div class="lb-con">
+            <div class="lb"></div>
+            <div class="lb"></div>
+            <div class="lb"></div>
+        </div>
+        
+
+    </div>
 </body>
 <script>
     (function () {
-        const __animation = 20000000;
+        const __animation = 1000;
         const __start = Date.now();
         window.onload = function () {
             const html = getHtml();
             const offset = __animation + __start - Date.now();
-            if(offset > 0){
-                setTimeout( () => {
+            if (offset > 0) {
+                setTimeout(() => {
                     removeClass(html, 'loading');
-                    addClass(html, 'loaded')
+                    addClass(html, 'loaded');
                 }, offset)
-            } 
+            }
         }
 
         function getHtml() {
@@ -41,6 +66,7 @@
             elem.classList.add(className);
         }
     })()
+
 </script>
 
 </html>
