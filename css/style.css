@@ -262,28 +262,28 @@ button, button:active {
 
 @keyframes to-black{
     0% { color: #ECF0F1 }
-    100% { color: #19242E; } 
+    100% { color: #19242E; transform: translateY(0); } 
 }
 
 @keyframes wait{
     0%  {
-        transform: translate(0,0);
-        -webkit-transform: translate(0,0);
+        transform: translateY(0);
+        -webkit-transform: translateY(0);
     }
     100% {
-        transform: translate(0,10%);
-        -webkit-transform: translate(0,10%);
+        transform: translateY(10%);
+        -webkit-transform: translateY(10%);
     }
 }
 
 @keyframes arrow-wait{
     0%{
-        transform: translate(0,0) rotate(45deg);
-        -webkit-transform: translate(0,0) rotate(45deg);
+        transform: translateY(0) rotate(45deg);
+        -webkit-transform: translateY(0) rotate(45deg);
     }
     100%{
-        transform: translate(0,10%) rotate(45deg);
-        -webkit-transform: translate(0,10%) rotate(45deg);
+        transform: translateY(10%) rotate(45deg);
+        -webkit-transform: translateY(10%) rotate(45deg);
     }
 }
 
