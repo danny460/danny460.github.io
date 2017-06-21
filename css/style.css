@@ -4,7 +4,7 @@ html, body{
 }
 
 * {
-    font-family: Open-Sans sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .spacer {
@@ -17,38 +17,57 @@ html, body{
     position: relative;
 }
 
+.loaded .loader-con {
+    /*display: none;*/
+    z-index: -1;
+}
+
 .nav-con{
-    width: 100%;
-    height: 50px;
+    height: 10vmin;
     display: flex;
     flex-direction: row;
-    padding: 10px;
+    padding: 2vmin;
     z-index: 1000;
+    color: #19242E;
 }
 
 .logo-con{
-    width: 50px;
+    width: 10vmin;
     text-align: center;
     position: relative;
     color: #ECF0F1;
     display: inline-block;
 }
 
+.logo-con p {
+    margin: 0;
+    font-size: 4vmin;
+    font-weight: bold;
+    padding: 1.2vmin 0;
+    border: 1vmin solid;
+}
+
 .tab-con {
     vertical-align: middle;
-    padding: 10px;
-    margin-right: 20px;
+    padding: 2vmin;
+    padding-right: 4vmin;
+}
+
+.tab-con .link-con{
+    height: 100%;
 }
 
 .tab-con .link{
-    font-size: 30px;
-    margin: auto 20px;
+    font-size: 4vmin;
+    margin: auto 4vmin;
     text-decoration: none;
     transition: 0.2s ease-in;
+    color: #19242E;
 }
 
 .tab-con .link:visited {
     text-decoration: none;
+    color: #19242E;
 }
 
 .tab-con .link:hover{
@@ -66,13 +85,7 @@ html.loaded .logo-con {
     animation: to-black 1s ease-in 0s 1 normal forwards;
 }
 
-.logo-con p {
-    margin: 0px;
-    font-size: 20px;
-    font-weight: bolder;
-    padding: 8.5px 0;
-    border: 5px solid;
-}
+
 
 .lb-con{
     padding: calc(50vh - 1.875vw) 0;
@@ -105,7 +118,7 @@ html.loaded div.lb{
 }
 
 .mb-con{
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     top: 0;
     left: 0;
@@ -154,11 +167,14 @@ html.loaded .f2{
 }
 
 .content-con {
-    top: 50px;
-    left: 0;
+    top: 14vmin;
+    left: 0px;
     width: 100vw;
+    height: calc(100vh - 14vmin);
     position: absolute;
     z-index: 100;
+    display: flex;
+    flex-direction: column;
 }
 
 .title-con {
@@ -182,10 +198,44 @@ html.loaded .f2{
     transition: 0.5s;
 }
 
-.loaded .title:hover {
+.loaded .title:hover, .loaded .title:active{
     cursor: pointer;
-    background-color: black;
+    background-color: #AA3939;
     color: white;
+}
+
+.arrow-con{
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+button, button:active {
+    outline: none;
+    border: none;
+    background-color: transparent;
+}
+
+.arrow:hover{
+    /*padding: 20px;*/
+    padding: 8px;
+    border: solid #AA3939;
+    border-width: 0 3px 3px 0;
+    cursor: pointer;
+}
+
+.arrow {
+    border: solid black;
+    border-width: 2px;
+    display: inline-block;
+    padding: 10px;
+    animation: arrow-wait 0.5s ease-in-out 0s infinite alternate-reverse;
+    transition: 0.2s linear;
+    -webkit-transition: 0.2s linear;
+}
+
+.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
 }
 
 @keyframes mv{
@@ -210,13 +260,31 @@ html.loaded .f2{
     100% { margin-left: 20vw; opacity: 1;}
 }
 
-@keyframes wait{
-    0% { top: 0 }
-    100% {top: 5px}
-}
-
 @keyframes to-black{
     0% { color: #ECF0F1 }
     100% { color: #19242E; } 
 }
+
+@keyframes wait{
+    0%  {
+        transform: translate(0,0);
+        -webkit-transform: translate(0,0);
+    }
+    100% {
+        transform: translate(0,10%);
+        -webkit-transform: translate(0,10%);
+    }
+}
+
+@keyframes arrow-wait{
+    0%{
+        transform: translate(0,0) rotate(45deg);
+        -webkit-transform: translate(0,0) rotate(45deg);
+    }
+    100%{
+        transform: translate(0,10%) rotate(45deg);
+        -webkit-transform: translate(0,10%) rotate(45deg);
+    }
+}
+
 

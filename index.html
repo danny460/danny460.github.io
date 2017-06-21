@@ -10,51 +10,66 @@
 </head>
 
 <body>
+    <!--<div class="con">
+        
+    </div>-->
     <div class="con">
+        <div class="content-con">
+            <div class="title-con">
+                <p class="title" style="padding-left:20px">Lorem ipsum.</p>
+            </div>
+            <div class="spacer"></div>
+            <div class="arrow-con">
+                <button id="down-btn">
+                    <i class="arrow down"></i>
+                </button>
+            </div>
+        </div>
+           
+        <div class="mb-con loader-con">
+            <div class="mb mb-red f1"></div>
+            <div class="mb mb-red f2"></div>
+        </div>
+        <div class="mb-con loader-con">
+            <div class="mb mb-light f1"></div><div class="mb mb-light f2"></div>
+        </div>
+        <div class="mb-con loader-con">
+            <div class="mb mb-dark f1"></div><div class="mb mb-dark f2"></div>
+        </div>
+        <div class="lb-con loader-con">
+            <div class="lb"></div>
+            <div class="lb"></div>
+            <div class="lb"></div>
+        </div>
         <div id="nav-bar" class="nav-con">
              <div class="logo-con">
                 <p>Z</p>
             </div>
             <div class="spacer"></div>
             <div class="tab-con">
-                <a href="" class="link">Tab1</a>
-                <a href="" class="link">Tab2</a>
-                <a href="" class="link">Tab3</a>
-                <a href="" class="link">Tab4</a>
+                <span class="link-con"><a href="/1" class="link">Lorem.</a></span>
+                <span class="link-con"><a href="/2" class="link">Lorem.</a></span>
+                <span class="link-con"><a href="/3" class="link">Lorem.</a></span>
             </div>
         </div>
-    </div>
-    <div class="con">
-        <div class="content-con">
-            <div class="title-con">
-                <p class="title">Hello!</p>
-            </div>
-        </div>
-           
-        <div class="mb-con">
-            <div class="mb mb-red f1"></div>
-            <div class="mb mb-red f2"></div>
-        </div>
-        <div class="mb-con">
-            <div class="mb mb-light f1"></div><div class="mb mb-light f2"></div>
-        </div>
-        <div class="mb-con">
-            <div class="mb mb-dark f1"></div><div class="mb mb-dark f2"></div>
-        </div>
-        <div class="lb-con">
-            <div class="lb"></div>
-            <div class="lb"></div>
-            <div class="lb"></div>
-        </div>
-        
-    
     </div>
 </body>
 <script>
     (function () {
-        const __animation = 1000;
+        const __animation = 2000;
         const __start = Date.now();
         window.onload = function () {
+            document.getElementById('down-btn').addEventListener('click', e => {
+                removeClass(getHtml(), 'loaded');
+                addClass(getHtml(), 'loading');
+                setTimeout(function() {
+                    const html = getHtml();   
+                    removeClass(html, 'loading');
+                    addClass(html, 'loaded');     
+                }, 1000);
+            });
+
+
             const html = getHtml();
             const offset = __animation + __start - Date.now();
             if (offset > 0) {
@@ -78,6 +93,8 @@
         function addClass(elem, className) {
             elem.classList.add(className);
         }
+
+        
     })()
 
 </script>
