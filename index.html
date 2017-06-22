@@ -25,7 +25,10 @@
             <div class="spacer"></div>
             <div class="arrow-con">
                 <button id="down-btn">
-                    <i class="arrow down"></i>
+                    <i class="arrow down">
+                        <div class="arrow-mid"></div>
+                    </i>
+                    
                 </button>
             </div>
         </div>
@@ -60,7 +63,7 @@
 </body>
 <script>
     (function () {
-        const __animation = 2000;
+        const __animation = 1000;
         const __start = Date.now();
         window.onload = function () {
             document.getElementById('down-btn').addEventListener('click', e => {
