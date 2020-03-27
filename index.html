@@ -12,11 +12,9 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Zhang-Linghan Portofolio">
 </head>
+    <body><h1>Hello</h1></body>
 
-<body>
-    <!--<div class="con">
-        
-    </div>-->
+<!--<body>
     <div class="con">
         <div class="content-con">
             <div class="title-con">
@@ -60,49 +58,49 @@
             </div>
         </div>
     </div>
-</body>
+</body>-->
 <script>
-    (function () {
-        const __animation = 1000;
-        const __start = Date.now();
-        window.onload = function () {
-            document.getElementById('down-btn').addEventListener('click', e => {
-                removeClass(getHtml(), 'loaded');
-                addClass(getHtml(), 'loading');
-                setTimeout(function() {
-                    const html = getHtml();   
-                    removeClass(html, 'loading');
-                    addClass(html, 'loaded');     
-                }, 1000);
-            });
+//     (function () {
+//         const __animation = 1000;
+//         const __start = Date.now();
+//         window.onload = function () {
+//             document.getElementById('down-btn').addEventListener('click', e => {
+//                 removeClass(getHtml(), 'loaded');
+//                 addClass(getHtml(), 'loading');
+//                 setTimeout(function() {
+//                     const html = getHtml();   
+//                     removeClass(html, 'loading');
+//                     addClass(html, 'loaded');     
+//                 }, 1000);
+//             });
 
 
-            const html = getHtml();
-            const offset = __animation + __start - Date.now();
-            if (offset > 0) {
-                setTimeout(() => {
-                    removeClass(html, 'loading');
-                    addClass(html, 'loaded');
-                }, offset)
-            }
-        }
+//             const html = getHtml();
+//             const offset = __animation + __start - Date.now();
+//             if (offset > 0) {
+//                 setTimeout(() => {
+//                     removeClass(html, 'loading');
+//                     addClass(html, 'loaded');
+//                 }, offset)
+//             }
+//         }
 
-        function getHtml() {
-            return window.document.getElementsByTagName('html')[0];
-        }
+//         function getHtml() {
+//             return window.document.getElementsByTagName('html')[0];
+//         }
 
-        function removeClass(elem, className) {
-            if (elem.classList.contains(className)) {
-                elem.classList.remove(className);
-            }
-        }
+//         function removeClass(elem, className) {
+//             if (elem.classList.contains(className)) {
+//                 elem.classList.remove(className);
+//             }
+//         }
 
-        function addClass(elem, className) {
-            elem.classList.add(className);
-        }
+//         function addClass(elem, className) {
+//             elem.classList.add(className);
+//         }
 
         
-    })()
+//     })()
 
 </script>
 
