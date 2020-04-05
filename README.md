@@ -1,5 +1,5 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
-![CI](https://github.com/danny460/danny460.github.io/workflows/CI/badge.svg?branch=dev)
+![CI](https://github.com/danny460/danny460.github.io/workflows/CI/badge.svg)
 <p align="center">
   <a href="https://www.gatsbyjs.org">
     <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
